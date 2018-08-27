@@ -39,7 +39,7 @@
                         <!--actionmethod,controller,method-->
                         @using (Html.BeginForm("Login", "Login", FormMethod.Post))
                         {
-                            @Html.ValidationSummary(false,"",new {@class= "alert alert-danger" } )
+                            @Html.ValidationSummary(false,"",new {@class= "text-danger" } )
                             <fieldset>
                                 <div class="form-group">
                                     @Html.TextBoxFor(model=>model.UserName, new { @class="form-control",@autofocus="autofocus",@placeholder="Username"})
