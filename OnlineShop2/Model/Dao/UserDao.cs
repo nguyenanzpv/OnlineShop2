@@ -45,10 +45,32 @@ namespace Model.Dao
             
         }
 
-        public IEnumerable<User> ListAllPaging(int page, int pageSize)
+        public bool Delete(int id)
+        {
+            try
+            {
+                var user = db.Users.Find(id);
+                db.Users.Remove(user);
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+           
+        }
+
+        public IEnumerable<User> ListAllPaging(string searchString,int page, int pageSize)
         {
 
-            return db.Users.OrderByDescending(x=>x.CreatedDate).ToPagedList(page,pageSize);
+            //return db.Users.OrderByDescending(x=>x.CreatedDate).ToPagedList(page,pageSize);
+            IQueryable<User> model = db.Users;
+            if(!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Username.Contains(searchString) || x.Name.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
         public User GetById(string userName)

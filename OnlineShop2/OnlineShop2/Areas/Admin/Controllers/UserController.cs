@@ -13,10 +13,11 @@ namespace OnlineShop2.Areas.Admin.Controllers
     public class UserController : BaseController
     {
         // GET: Admin/User: Default trieu goi form cho user nhap thong tin insert
-        public ActionResult Index(int page=1,int pageSize=1)
+        public ActionResult Index(string searchString,int page=1,int pageSize=1)
         {
             var dao = new UserDao();
-            var model = dao.ListAllPaging(page,pageSize);
+            var model = dao.ListAllPaging(searchString,page,pageSize);
+            ViewBag.SearchString = searchString;//ViewBag luu gia tri controller qua View. Bi mat khi redirect. Session thi van luu qua lai giua cac controller
             return View(model);
         }
 
@@ -77,6 +78,13 @@ namespace OnlineShop2.Areas.Admin.Controllers
                 }
             }
             return View("Index");
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            new UserDao().Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }
