@@ -34,3 +34,4 @@ D:\An-x270\Tedu-ASP\Tedu-ASP\Git\OnlineShop2\OnlineShop2\Model\bin\Debug\PagedLi
 D:\An-x270\Tedu-ASP\Tedu-ASP\Git\OnlineShop2\OnlineShop2\Model\bin\Debug\PagedList.Mvc.xml
 D:\An-x270\Tedu-ASP\Tedu-ASP\Git\OnlineShop2\OnlineShop2\Model\obj\Debug\Model.dll
 D:\An-x270\Tedu-ASP\Tedu-ASP\Git\OnlineShop2\OnlineShop2\Model\obj\Debug\Model.pdb
+D:\An-x270\Tedu-ASP\Tedu-ASP\Git\OnlineShop2\OnlineShop2\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
