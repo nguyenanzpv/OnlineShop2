@@ -83,6 +83,21 @@ namespace Model.Dao
             return db.Users.Find(id);
         }
 
+        public bool ChangeStatus(long id)
+        {
+            var user = db.Users.Find(id);
+            if(user.Status)
+            {
+                user.Status = false;
+            }
+            else
+            {
+                user.Status = true;
+            }
+            db.SaveChanges();
+            return user.Status;
+        }
+
         public int Login(string userName, string passWord)
         {
             var result = db.Users.SingleOrDefault(x => x.Username == userName);

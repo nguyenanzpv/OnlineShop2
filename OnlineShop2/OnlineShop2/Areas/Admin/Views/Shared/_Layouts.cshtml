@@ -40,6 +40,14 @@
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
+                <!--phan alert popup-->
+                @if (TempData["AlertMessage"] != null)
+                {
+                    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                        @TempData["AlertMessage"]
+                    </div>
+                }
+                
                 @RenderBody()
                 <!-- /.row -->
             </div>
@@ -60,6 +68,7 @@
     <script src="/assets/admin/js/plugins/ckeditor/ckeditor/ckeditor.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="/assets/admin/dist/js/sb-admin-2.js"></script>
+    <!--Phan de nhung script ben trang html, khong can document.ready nua vi da de sau jquery-->
     @RenderSection("jsFooter",required:false)
 </body>
 </html>

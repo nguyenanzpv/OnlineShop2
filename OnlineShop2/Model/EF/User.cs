@@ -14,14 +14,17 @@
 
         [StringLength(50)]
         [DisplayName("Tài khoản")]
+        [Required(ErrorMessage ="Tài khoản không được để trống")]
         public string Username { get; set; }
 
         [StringLength(32)]
-        [DisplayName("Mật khầu")]
+        [DisplayName("Mật khẩu")]
+        [Required(ErrorMessage ="Mật khẩu không được để trống")]
         public string Password { get; set; }
 
         [StringLength(50)]
         [DisplayName("Tên")]
+        [Required(ErrorMessage ="Tên không được để trống")]
         public string Name { get; set; }
 
         [StringLength(250)]
@@ -29,10 +32,14 @@
         public string Address { get; set; }
 
         [StringLength(50)]
+        [Required(ErrorMessage ="Email không được để trống")]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$",
+            ErrorMessage = "Email Format is wrong")]
         public string Email { get; set; }
 
         [StringLength(50)]
         [DisplayName("Điện thoại")]
+        [Required(ErrorMessage ="Điện thoại không được để trống")]
         public string Phone { get; set; }
 
         public DateTime? CreatedDate { get; set; }
@@ -48,6 +55,7 @@
         public string ModifiedBy { get; set; }
 
         [DisplayName("Trạng thái")]
+        [Required(ErrorMessage ="Trạng thái không được để trống")]
         public bool Status { get; set; }
         
     }
